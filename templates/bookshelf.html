@@ -1,0 +1,5 @@
+<div class="shelf-background" ng-controller="bookShelf">
+    <span class="book" ng-repeat="book in bookData">
+    <a ui-sref="book"  ng-click="currentBook(book)"><img class="book-image" ng-src="{{book.bookicon}}"/></a>
+</span>
+</div>
