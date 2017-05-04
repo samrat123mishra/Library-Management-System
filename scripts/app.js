@@ -4,7 +4,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         name: 'login',
         url: '/login',
         templateUrl: 'templates/login.html',
-        controller: 'validationController'
+        controller: 'loginCtrl'
     });
       $stateProvider.state("bookShelf", {
         name: 'bookShelf',
@@ -14,9 +14,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
      $stateProvider.state("book", {
         name: 'book',
-        url: '/bookShelf/book',
+        url: '/bookshelf/book/:bookId',
         templateUrl: 'templates/book.html',
         controller: 'bookShelf'
+    //     resolve : {
+    //    book: [
+    //         '$stateParams',
+    //         '$q',
+    //         'bookService'
+    //         function($stateParams, $q, bookService) {
+    //                 return book;// this book u need to inject in bookCtrl as a dependency
+    //         }]
+    //     }
     });
     $urlRouterProvider.otherwise("/login");
 });

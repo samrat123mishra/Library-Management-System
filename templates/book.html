@@ -1,5 +1,6 @@
-<div class="" ng-controller="bookShelf">
-    <!--<div class="">-->
-    <img src="{{currentBookData.bookicon}}"/>
-<!--</div>-->
+<div ng-controller="bookShelf">
+    <span><img class="book-img" ng-src="{{currentBookData.bookicon}}"/></span>
+    <div class="book-info">
+        <h2>{{currentBookData.bookname}}</h2><p>{{currentBookData.bookinfo}}</p>
+        </div>
 </div>

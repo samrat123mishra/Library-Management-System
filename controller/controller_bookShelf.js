@@ -1,15 +1,14 @@
-app.controller('bookShelf', ['$scope', 'Service', function ($scope, dataService) {
-    $scope.currentBookData = {};
-    dataService.getbookData().then(function (data) {
+app.controller('bookShelf', ['$scope', 'Service', function ($scope, Service) {
+     $scope.currentBookData =Service.getCurrentBook();
+    Service.getbookData().then(function (data) {
         $scope.bookData = data;
     });
     $scope.currentBook = function (book) {
-        console.log(book);
-        $scope.currentBookData = book;
-        console.log( $scope.currentBookData);
+        Service.setCurrentBook(book);
     };
 }]);
 app.service("Service", ['$http', '$q', function ($http, $q) {
+    var currentBook;
     return {
         getbookData: function () {
             var deferred = $q.defer();
@@ -21,6 +20,12 @@ app.service("Service", ['$http', '$q', function ($http, $q) {
                     deferred.reject(error);
                 });
             return deferred.promise;
+        },
+        setCurrentBook: function(book){
+            currentBook = book;
+        },
+        getCurrentBook: function(){
+            return currentBook;
         }
     };
 }]);
