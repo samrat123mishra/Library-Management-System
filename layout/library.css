@@ -19,9 +19,11 @@ input[type=text], input[type=password] {
     width: 100px;
 }
 .book-image{
+    border: 2px solid black;
     width:200px;
     margin-left: 50px;
     margin-top: 20px;
+    cursor: pointer;
 }
 .book-img{
     width:25%;

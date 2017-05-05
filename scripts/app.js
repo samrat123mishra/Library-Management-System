@@ -6,26 +6,23 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
     });
-      $stateProvider.state("bookShelf", {
+    $stateProvider.state("bookShelf", {
         name: 'bookShelf',
         url: '/bookShelf',
         templateUrl: 'templates/bookshelf.html',
         controller: 'bookShelf'
     });
-     $stateProvider.state("book", {
+    $stateProvider.state("book", {
         name: 'book',
-        url: '/bookshelf/book/:bookId',
+        url: '/bookshelf/book/:bookid',
         templateUrl: 'templates/book.html',
-        controller: 'bookShelf'
-    //     resolve : {
-    //    book: [
-    //         '$stateParams',
-    //         '$q',
-    //         'bookService'
-    //         function($stateParams, $q, bookService) {
-    //                 return book;// this book u need to inject in bookCtrl as a dependency
-    //         }]
-    //     }
+        controller: 'book',
+        resolve: {
+            bookid: ['$stateParams', '$q', 'Service', function ($stateParams, $q, Service) {
+                var curBookId = Service.getCurrentBook();
+                return curBookId.bookid;
+            }]
+        }
     });
     $urlRouterProvider.otherwise("/login");
 });
