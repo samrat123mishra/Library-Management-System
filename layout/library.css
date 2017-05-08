@@ -18,6 +18,23 @@ input[type=text], input[type=password] {
 .book{
     width: 100px;
 }
+.log-butt{
+    margin-left: 30%;
+}
+.login-butt{
+    text-decoration:none;
+    color: white;
+}
+.login-butt:hover{
+    text-decoration:none;
+}
+.rent{
+    color: white;
+}
+.rent:hover{
+    text-decoration: none;
+    color: white;
+}
 .book-image{
     border: 2px solid black;
     width:200px;

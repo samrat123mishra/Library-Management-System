@@ -18,9 +18,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/book.html',
         controller: 'book',
         resolve: {
-            bookid: ['$stateParams', '$q', 'Service', function ($stateParams, $q, Service) {
-                var curBookId = Service.getCurrentBook();
-                return curBookId.bookid;
+            currentBook: ['$stateParams','Service', function($stateParams, Service) {
+                return Service.getCurrentBook($stateParams.bookid);
             }]
         }
     });
