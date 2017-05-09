@@ -1,23 +1,23 @@
-app.service("dataService", ['$http', '$q', function ($http, $q) {
-    this.user='';
+app.service("rentBookService", ['$http', '$q', function ($http, $q) {
+    this.currentBook;
     return {
-        getData: function () {
+        // getBookshelf
+        getbookData: function () {
             var deferred = $q.defer();
-            $http.get('scripts/authenticate.json')
+            $http.get('scripts/bookshelf.json')
                 .then(function (response) {
                     deferred.resolve(response.data);
                 })
                 .catch(function (error) {
                     deferred.reject(error);
                 });
-
             return deferred.promise;
         },
-        setUser : function(user){
-            this.user = user;
+        setCurrentBook: function (book) {
+            this.currentBook = book;
         },
-        getUser:function(){
-            return this.user;
+        getCurrentBook: function () {
+            return this.currentBook;
         }
     };
 }]);

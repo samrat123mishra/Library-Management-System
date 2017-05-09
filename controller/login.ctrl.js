@@ -13,6 +13,7 @@ app.controller('loginCtrl', ['$scope', 'dataService', '$state', function ($scope
     $scope.authenticate = function (uname, pword) {
         for (var i = 0; i < $scope.apiData.length; i++) {
             if (uname === $scope.apiData[i].username && pword === $scope.apiData[i].password) {
+                dataService.setUser($scope.apiData[i].username);
                 $state.go('bookShelf');
                 alert('User Authenticated');
                 return;

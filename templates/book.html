@@ -3,6 +3,8 @@
     <div class="book-info">
         <h2>{{currentBookData.bookname}}</h2>
         <p>{{currentBookData.bookinfo}}</p>
-        <span class="btn btn-primary"><a class="rent" href="#">Rent Book</a></span>
+        <span class="btn btn-primary"><a class="rent"  ui-sref=".rentBook" ng-click="currentBookRent(currentBookData)">Rent Book</a></span>
+        <div ui-view="book.rentBook"></div>
     </div>
 </div>
+      

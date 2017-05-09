@@ -36,6 +36,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }]
         }
     });
+       $stateProvider.state("book.rentBook", {
+       views: {
+        "book.rentBook": {
+          name: 'rentBook',  
+          templateUrl: 'templates/rentbook.html',
+          controller: 'rentBook'
+        }
+       }
+    });
     $urlRouterProvider.otherwise("/login");
 });
 
