@@ -1,6 +1,6 @@
 app.controller('loginCtrl', ['$scope', 'dataService', '$state', function ($scope, dataService, $state) {
     dataService.getData().then(function (data) {
-        $scope.apiData = data;
+        $scope.loginData = data;
     });
     $scope.get = function () {
         var userName = document.getElementById('user').value;
@@ -10,9 +10,9 @@ app.controller('loginCtrl', ['$scope', 'dataService', '$state', function ($scope
         document.getElementById('pass').value = '';
     };
     $scope.authenticate = function (uname, pword) {
-        for (var i = 0; i < $scope.apiData.length; i++) {
-            if (uname === $scope.apiData[i].username && pword === $scope.apiData[i].password) {
-                dataService.setUser($scope.apiData[i].username);
+        for (var i = 0; i < $scope.loginData.length; i++) {
+            if (uname === $scope.loginData[i].username && pword === $scope.loginData[i].password) {
+                dataService.setUser($scope.loginData[i].username);
                 $state.go('bookShelf');
                 alert('User Authenticated');
                 return;
