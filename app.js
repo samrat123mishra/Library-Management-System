@@ -18,32 +18,32 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/book.html',
         controller: 'book',
         resolve: {
-            currentBook: ['$q','$http','$stateParams', function($q, $http, $stateParams) {
-                 var deferred = $q.defer();
+            currentBook: ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
+                var deferred = $q.defer();
                 $http.get('scripts/bookshelf.json')
-                 .then(function (response) {
-                     response.data.forEach(function(bookData) {
-                        if(bookData.bookid === $stateParams.bookid){
-                            deferred.resolve(bookData)
-                        }
-                     })
-                   
-                })
-                .catch(function (error) {
-                    deferred.reject(error);
-                });
-            return deferred.promise;
+                    .then(function (response) {
+                        response.data.forEach(function (bookData) {
+                            if (bookData.bookid === $stateParams.bookid) {
+                                deferred.resolve(bookData)
+                            }
+                        })
+
+                    })
+                    .catch(function (error) {
+                        deferred.reject(error);
+                    });
+                return deferred.promise;
             }]
         }
     });
-       $stateProvider.state("book.rentBook", {
-       views: {
-        "book.rentBook": {
-          name: 'rentBook',  
-          templateUrl: 'templates/rentbook.html',
-          controller: 'rentBook'
+    $stateProvider.state("book.rentBook", {
+        views: {
+            "book.rentBook": {
+                name: 'rentBook',
+                templateUrl: 'templates/rentbook.html',
+                controller: 'rentBook'
+            }
         }
-       }
     });
     $urlRouterProvider.otherwise("/login");
 });

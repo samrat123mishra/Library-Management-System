@@ -8,7 +8,6 @@ app.controller('loginCtrl', ['$scope', 'dataService', '$state', function ($scope
         $scope.authenticate(userName, passWord);
         document.getElementById('user').value = '';
         document.getElementById('pass').value = '';
-
     };
     $scope.authenticate = function (uname, pword) {
         for (var i = 0; i < $scope.apiData.length; i++) {

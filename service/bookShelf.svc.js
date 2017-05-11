@@ -1,8 +1,7 @@
 app.service("bookShelfService", ['$http', '$q', function ($http, $q) {
     this.currentBook;
     return {
-        // getBookshelf
-        getbookData: function () {
+        getBookShelfData: function () {
             var deferred = $q.defer();
             $http.get('scripts/bookshelf.json')
                 .then(function (response) {

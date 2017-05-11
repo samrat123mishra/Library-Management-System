@@ -1,20 +1,29 @@
-app.controller('rentBook', ['$scope', 'rentBookService','dataService','localStorageService', function ($scope, rentBookService,dataService, localStorageService) {
-    //  $scope.rentBookArr = [];
-    //     $scope.obtainedRentBookArr = [];
-    $scope.arr=[];
+app.controller('rentBook', ['$scope', 'rentBookService', 'dataService', 'localStorageService', function ($scope, rentBookService, dataService, localStorageService) {
+    $scope.arr = [];
+    const a = 3;
     $scope.currentRentBookData = rentBookService.getCurrentBook();
-    rentBookService.getbookData().then(function (data) {
-        $scope.bookData = data;
-    });
-    $scope.setRentBook = function(rentBookDetails){
+    $scope.setRentBook = function (rentBookDetails) {
         $scope.uname = dataService.getUser();
-        
-        $scope.arr.push(rentBookDetails);
-        // $scope.rentBookArr.push(rentBookDetails);
-         localStorageService.set($scope.uname,$scope.arr);
-        // $scope.obtainedRentBookArr = localStorageService.get("rentBooks");
-        // console.log(obtainedRentBookArr); 
+        var availBookDetails = localStorageService.get($scope.uname);
+        if (availBookDetails) {
+            $scope.arr = JSON.parse(availBookDetails);
+            if ($scope.arr.length >= a) {
+                alert('You canot avail more than 3 books');
+                return;
+            }
+            for (var i = 0; i < $scope.arr.length; i++) {
+                if ($scope.arr[i].bookname === rentBookDetails.bookname) {
+                    alert('You have already rented this book');
+                    return;
+                }
+            }
+            $scope.arr.push(rentBookDetails);
+        } else {
+            $scope.arr.push(rentBookDetails);
+        }
+
+        localStorageService.set($scope.uname, $scope.arr);
     }
-    
+
 }]);
 

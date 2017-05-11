@@ -1,5 +1,5 @@
 app.service("dataService", ['$http', '$q', function ($http, $q) {
-    this.user='';
+    this.user = '';
     return {
         getData: function () {
             var deferred = $q.defer();
@@ -13,10 +13,10 @@ app.service("dataService", ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        setUser : function(user){
+        setUser: function (user) {
             this.user = user;
         },
-        getUser:function(){
+        getUser: function () {
             return this.user;
         }
     };
