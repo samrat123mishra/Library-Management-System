@@ -1,7 +1,4 @@
-app.controller('book', ['$scope', 'rentBookService', 'currentBook', function ($scope, rentBookService, currentBook) {
+app.controller('book', ['$scope', 'currentBook', function ($scope, currentBook) {
     $scope.currentBookData = currentBook;
-    $scope.currentBookRent = function (book) {
-        rentBookService.setCurrentBook(book);
-    };
 }]);
 

@@ -1,9 +1,9 @@
-app.controller('rentBook', ['$scope', 'rentBookService', 'dataService', 'localStorageService', function ($scope, rentBookService, dataService, localStorageService) {
+app.controller('rentBook', ['$scope', 'rentBookService', 'UserService', 'localStorageService', function ($scope, rentBookService, UserService, localStorageService) {
     $scope.arr = [];
     const a = 3;
     $scope.currentRentBookData = rentBookService.getCurrentBook();
     $scope.setRentBook = function (rentBookDetails) {
-        $scope.uname = dataService.getUser();
+        $scope.uname = UserService.getUser();
         var availBookDetails = localStorageService.get($scope.uname);
         if (availBookDetails) {
             $scope.arr = JSON.parse(availBookDetails);

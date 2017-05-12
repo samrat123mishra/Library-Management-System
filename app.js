@@ -1,10 +1,23 @@
 var app = angular.module('library', ["ui.router"]);
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider.state("loginPage", {
+    $stateProvider.state("login", {
         name: 'login',
         url: '/login',
         templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
+        controller: 'loginCtrl',
+        resolve:{
+            loginData:['$q', '$http', function ($q, $http) {
+                var deferred = $q.defer();
+                $http.get('scripts/authenticate.json')
+                    .then(function (response) {
+                        deferred.resolve(response.data);
+                    })
+                    .catch(function (error) {
+                        deferred.reject(error);
+                    });
+                return deferred.promise;
+            }]
+        }
     });
     $stateProvider.state("bookShelf", {
         name: 'bookShelf',

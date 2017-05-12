@@ -1,19 +1,17 @@
 app.service("localStorageService", ['$http', '$q', function ($http, $q) {
-    return {
-        setCurrentBook: function (book) {
+        this.setCurrentBook = function (book) {
             this.currentBook = book;
         },
-        getCurrentBook: function () {
+        this.getCurrentBook = function () {
             return this.currentBook;
         },
-        set: function (userName, obj) {
+        this.set = function (userName, obj) {
             var bookStr = JSON.stringify(obj);
             localStorage.setItem(userName, bookStr);
             alert('Your book has been rented');
         },
-        get: function (userName) {
+        this.get = function (userName) {
             return localStorage.getItem(userName);
 
-        }
     };
 }]);

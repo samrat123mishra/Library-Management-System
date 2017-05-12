@@ -1,11 +1,10 @@
 app.service("rentBookService", ['$http', '$q', function ($http, $q) {
-    this.currentBook;
-    return {
-        setCurrentBook: function (book) {
-            this.currentBook = book;
-        },
-        getCurrentBook: function () {
+    this.setCurrentBook = function (book) {
+        this.currentBook = book;
+    },
+        this.getCurrentBook = function () {
             return this.currentBook;
         }
-    };
 }]);
+
+
