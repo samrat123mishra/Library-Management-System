@@ -1,4 +1,4 @@
-app.controller('rentBook', ['$scope', 'UserService', 'localStorageService','rentBookDetails', function ($scope, UserService, localStorageService,rentBookDetails) {
+app.controller('rentBook', ['$scope', 'UserService', 'localStorageService', 'rentBookDetails', function ($scope, UserService, localStorageService, rentBookDetails) {
     $scope.arr = [];
     const a = 3;
     $scope.currentRentBookData = rentBookDetails;

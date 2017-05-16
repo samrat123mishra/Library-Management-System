@@ -5,8 +5,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl',
-        resolve:{
-            loginData:['$q', '$http', function ($q, $http) {
+        resolve: {
+            loginData: ['$q', '$http', function ($q, $http) {
                 var deferred = $q.defer();
                 $http.get('scripts/authenticate.json')
                     .then(function (response) {
@@ -24,8 +24,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/bookShelf',
         templateUrl: 'templates/bookshelf.html',
         controller: 'bookShelf',
-          resolve:{
-            bookShelfData:['$q', '$http', function ($q, $http) {
+        resolve: {
+            bookShelfData: ['$q', '$http', function ($q, $http) {
                 var deferred = $q.defer();
                 $http.get('scripts/bookshelf.json')
                     .then(function (response) {
@@ -70,8 +70,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 controller: 'rentBook'
             }
         },
-        resolve:{
-            rentBookDetails:function(currentBookService){
+        resolve: {
+            rentBookDetails: function (currentBookService) {
                 return currentBookService.getCurrentBook();
             }
         }
