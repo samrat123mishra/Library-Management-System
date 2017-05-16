@@ -69,6 +69,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 templateUrl: 'templates/rentbook.html',
                 controller: 'rentBook'
             }
+        },
+        resolve:{
+            rentBookDetails:function(currentBookService){
+                return currentBookService.getCurrentBook();
+            }
         }
     });
     $urlRouterProvider.otherwise("/login");
