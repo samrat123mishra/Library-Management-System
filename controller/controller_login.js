@@ -1,4 +1,4 @@
-app.controller('validationController', ['$scope', 'dataService','$state', function ($scope, dataService,$state) {
+app.controller('loginCtrl', ['$scope', 'dataService','$state', function ($scope, dataService,$state) {
     dataService.getData().then(function (data) {
         $scope.apiData = data;
     });

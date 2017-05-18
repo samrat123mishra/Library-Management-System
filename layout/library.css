@@ -4,6 +4,38 @@ form {
 h2{
     text-align: center;
 }
+
+#rentSummary {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+.content {
+    position: relative;
+    background-color: #fefefe;
+    padding: 1%;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    height: 40%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    margin-left: -25%;
+    margin-top: -18%;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -18,10 +50,41 @@ input[type=text], input[type=password] {
 .book{
     width: 100px;
 }
+.log-butt{
+    margin-left: 30%;
+}
+.login-butt{
+    text-decoration:none;
+    color: white;
+}
+.login-butt:hover{
+    text-decoration:none;
+}
+.rent{
+    color: white;
+    text-decoration: none;
+}
+.rent:hover{
+    text-decoration: none;
+    color: white;
+}
 .book-image{
+    border: 2px solid black;
     width:200px;
     margin-left: 50px;
     margin-top: 20px;
+    cursor: pointer;
+}
+.book-img{
+    width:25%;
+    float: left;
+    border: 2px solid black;
+}
+.book-info{
+    width:70%;
+    /*display: inline-block;*/
+    float:left;
+    margin-left: 30px;
 }
 button {
     background-color: #4CAF50;
@@ -33,7 +96,10 @@ button {
     cursor: pointer;
     width: 30%;
 }
-
+.rent-book{
+    cursor: pointer;
+    text-decoration: none;
+}
 button:hover {
     opacity: 0.8;
 }

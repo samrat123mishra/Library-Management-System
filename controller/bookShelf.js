@@ -1,5 +1,4 @@
 app.controller('bookShelf', ['$scope', 'Service', function ($scope, Service) {
-     $scope.currentBookData =Service.getCurrentBook();
     Service.getbookData().then(function (data) {
         $scope.bookData = data;
     });
@@ -8,7 +7,7 @@ app.controller('bookShelf', ['$scope', 'Service', function ($scope, Service) {
     };
 }]);
 app.service("Service", ['$http', '$q', function ($http, $q) {
-    var currentBook;
+    this.currentBook;
     return {
         getbookData: function () {
             var deferred = $q.defer();
@@ -21,11 +20,11 @@ app.service("Service", ['$http', '$q', function ($http, $q) {
                 });
             return deferred.promise;
         },
-        setCurrentBook: function(book){
-            currentBook = book;
+        setCurrentBook: function (book) {
+            this.currentBook = book;
         },
-        getCurrentBook: function(){
-            return currentBook;
+        getCurrentBook: function () {
+            return this.currentBook;
         }
     };
 }]);
